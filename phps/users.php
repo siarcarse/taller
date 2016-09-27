@@ -12,9 +12,7 @@ $result = pg_query($db, $sql) or die('SQL ERROR 1: ' . pg_last_error());
 while ($data = pg_fetch_array($result)) {
     $users[] = array(
         'pk' => $data['pk'],
-        'name' => $data['name'],
-        'lastname' => $data['lastname'],
-        'role' => $data['role']
+        'name' => $data['name']. ' '. $data['lastname']
      );
 }
 echo json_encode($users);
